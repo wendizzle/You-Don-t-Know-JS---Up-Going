@@ -1,0 +1,43 @@
+Chapter 1 
+
+const TAX_RATE = 0.08; 
+const PHONE_PRICE = 99.99;
+const ACCESSORY_PRICE = 9.99;
+const SPENDING_THRESHOLD = 200; 
+
+var bankAccountBalance = 303.91; 
+var amount = 0;  
+
+//keep buying phones while you still have money 
+while (amount < bankAccountBalance) {
+  amount = amount + PHONE_PRICE; 
+  if (amount < SPENDING_THRESHOLD) {
+    amount = amount + ACCESSORY_PRICE;
+  }
+}
+
+function calculateTax(amount) {
+  return amount * TAX_RATE; 
+}
+
+function formatAmount(amount) {
+  return '$' + amount.toFixed(2); 
+}
+
+//add tax to the total amount 
+amount = amount + calculateTax(amount); 
+
+console.log('Your purchase is ' + formatAmount(amount)); 
+
+//check if you can afford the items
+if (amount > bankAccountBalance) {
+  console.log('You cannot afford this cost:' + formatAmount(amount)); 
+}
+
+
+
+
+
+
+
+
